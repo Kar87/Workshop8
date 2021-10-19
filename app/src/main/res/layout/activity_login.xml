@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etUsername1"
         android:layout_marginTop="50dp"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnSignIn1"

@@ -143,8 +143,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="261dp"
-        android:layout_height="wrap_content"
+        android:layout_width="218dp"
+        android:layout_height="671dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -274,6 +274,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/etUserName"
             android:hint="Password"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="4dp"
             tools:layout_editor_absoluteY="1308dp" />
 
@@ -283,6 +284,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/etPassword"
             android:hint="Retype Password"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="1384dp" />
     </LinearLayout>
