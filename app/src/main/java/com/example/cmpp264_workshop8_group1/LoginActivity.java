@@ -38,11 +38,13 @@ public class LoginActivity extends AppCompatActivity {
                 else if (customerdb.checkUserNamePassword(user, pwd))
                 {
                         Toast.makeText(LoginActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                         intent.putExtra("user",user);
                         intent.putExtra("password",pwd);
                         intent.putExtra("mode", "update");
-                        startActivity(intent);                }
+                        startActivity(intent);
+                }
                 else
                     Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
 
