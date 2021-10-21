@@ -21,13 +21,20 @@ public class HomeActivity extends AppCompatActivity {
         ivBookings = findViewById(R.id.ivBookings);
         ivPackages = findViewById(R.id.ivPackages);
         ivContactUs = findViewById(R.id.ivContactUs);
+        Intent intent = getIntent();
+        //String mode = intent.getStringExtra("mode");
+        String user = intent.getStringExtra("user");
+        String pwd = intent.getStringExtra("password");
 
         ivProfile.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                intent.putExtra("mode", "insert");
-                //LoginActivity.etUsername1.getText();
+
+                Intent intent = new Intent(HomeActivity.this, RegisterActivity.class);
+                intent.putExtra("user",user);
+                intent.putExtra("password",pwd);
+                intent.putExtra("mode", "update");
                 startActivity(intent);
 
 

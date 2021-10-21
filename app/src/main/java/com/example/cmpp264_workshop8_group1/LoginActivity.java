@@ -35,22 +35,22 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Please enter required fields", Toast.LENGTH_SHORT).show();
                     System.out.println("Enter values");
                 }
+                else if (customerdb.checkUserName(user) == false) {
+                    Toast.makeText(LoginActivity.this, "User name does not exist", Toast.LENGTH_SHORT).show();
+                }
                 else if (customerdb.checkUserNamePassword(user, pwd))
                 {
-                        Toast.makeText(LoginActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        intent.putExtra("user",user);
-                        intent.putExtra("password",pwd);
-                        intent.putExtra("mode", "update");
-                        startActivity(intent);
+                    Toast.makeText(LoginActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    intent.putExtra("user",user);
+                    intent.putExtra("password",pwd);
+                    //intent.putExtra("mode", "update");
+                    startActivity(intent);
                 }
                 else
                     Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
-
             }
 
         });
-
     }
 }
