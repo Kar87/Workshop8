@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgapps2"
+    android:background="@drawable/homebg3"
     tools:context=".HomeActivity">
 
     <LinearLayout
@@ -68,6 +68,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:padding="16dp"
+                    android:background="#dffaff"
 
                     android:gravity="center"
                     android:layout_width="match_parent"
@@ -102,6 +103,7 @@
                 >
 
                 <LinearLayout
+                    android:background="#dffaff"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"
@@ -137,6 +139,7 @@
                 >
 
                 <LinearLayout
+                    android:background="#dffaff"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"
@@ -172,6 +175,7 @@
                 >
 
                 <LinearLayout
+                    android:background="#dffaff"
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:gravity="center"
@@ -189,6 +193,78 @@
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
                         android:text="Contact Us"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="22dp"
+                >
+
+                <LinearLayout
+                    android:background="#dffaff"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/ivQuestion"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/questionmark" />
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Unkown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="22dp"
+                >
+
+                <LinearLayout
+                    android:background="#dffaff"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/ivWebsite"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/website" />
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Website"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 

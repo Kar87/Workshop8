@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/bglogin"
+    android:background="@drawable/appbackground"
     tools:context=".LoginActivity">
 
 
@@ -28,18 +28,19 @@
 
         <EditText
             android:id="@+id/etUsername1"
-
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:textSize="25dp"
-            android:hint="User Name"
-            android:textAlignment="center" />
+            android:textSize="20dp"
+            android:hint="Username"
+            android:drawablePadding="5dp"
+            android:textAlignment="center"
+            android:drawableLeft="@drawable/ic_baseline_login_24"
+            android:drawableStart="@drawable/ic_baseline_login_24"/>
 
         <EditText
             android:id="@+id/etPassword1"
@@ -51,15 +52,17 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_marginTop="1dp"
-            android:textSize="25dp"
-            android:hint="Password"
+            android:textSize="20dp"
+            android:hint="Enter your password"
             android:inputType="textPassword"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:drawableLeft="@drawable/ic_baseline_lock_open_24"
+            android:drawableStart="@drawable/ic_baseline_lock_open_24"/>
 
         <Button
             android:id="@+id/btnSignIn1"
             android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_below="@+id/etPassword1"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
