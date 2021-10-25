@@ -1,7 +1,10 @@
 package com.example.cmpp264_workshop8_group1;
 
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,24 +35,71 @@ public class LoginActivity extends AppCompatActivity {
                 String pwd = etPassword1.getText().toString();
 
                 if (user.equals("") || pwd.equals("")) {
-                    Toast.makeText(LoginActivity.this, "Please enter required fields", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("Enter User Name and Password!");
+                    builder.setCancelable(true);
+
+                    builder.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert1 = builder.create();
+                    alert1.show();
                 }
                 else if (customerdb.checkUserName(user) == false) {
-                    Toast.makeText(LoginActivity.this, "User name does not exist", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("User name does not exist!Do you want to Register?");
+                    builder.setCancelable(true);
+
+                    builder.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                                    intent.putExtra("mode", "insert");
+                                    startActivity(intent);
+                                }
+                            });
+
+                    builder.setNegativeButton(
+                            "Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert1 = builder.create();
+                    alert1.show();
                 }
                 else if (customerdb.checkUserNamePassword(user, pwd))
                 {
                     Toast.makeText(LoginActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
-
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     intent.putExtra("user",user);
                     intent.putExtra("password",pwd);
-                    //intent.putExtra("mode", "update");
                     startActivity(intent);
                 }
-                else
-                    Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("Invalid credentials");
+                    builder.setCancelable(true);
 
+                    builder.setPositiveButton(
+                            "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert2 = builder.create();
+                    alert2.show();
+                }
             }
 
         });
