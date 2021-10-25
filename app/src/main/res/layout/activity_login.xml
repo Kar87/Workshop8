@@ -35,13 +35,14 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:textSize="20dp"
+            android:drawableStart="@drawable/ic_baseline_login_24"
+            android:drawableLeft="@drawable/ic_baseline_login_24"
             android:hint="Username"
-            android:textColorHint="#0188a3"
             android:paddingBottom="20dp"
             android:textAlignment="center"
-            android:drawableLeft="@drawable/ic_baseline_login_24"
-            android:drawableStart="@drawable/ic_baseline_login_24"/>
+            android:textColor="@color/white"
+            android:textColorHint="#0188a3"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/etPassword1"
@@ -53,14 +54,15 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_marginTop="6dp"
-            android:textColorHint="#0188a3"
-            android:paddingBottom="20dp"
-            android:textSize="20dp"
+            android:drawableStart="@drawable/ic_baseline_lock_open_24"
+            android:drawableLeft="@drawable/ic_baseline_lock_open_24"
             android:hint="Enter your password"
             android:inputType="textPassword"
+            android:paddingBottom="20dp"
             android:textAlignment="center"
-            android:drawableLeft="@drawable/ic_baseline_lock_open_24"
-            android:drawableStart="@drawable/ic_baseline_lock_open_24"/>
+            android:textColor="@color/white"
+            android:textColorHint="#0188a3"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnSignIn1"
