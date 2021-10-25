@@ -11,15 +11,19 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Arrays;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView tvId, tvRp;
     EditText etCustomerId, etFirstName, etLastName, etAddress, etCity, etProv,etPostal, etCountry,  etHomePhone,
             etBusPhone, etEmail, etAgentId, etUserName, etPassword, etRePassword;
-    Button btnRegister;
+     Button btnRegister, btnEdit;
     DBHelper db;
     CustomerDB customerDB;
+    boolean passUpdate = false;
 
 
     @Override
@@ -45,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         etRePassword = findViewById(R.id.etRePassword);
         btnRegister = findViewById(R.id.btnRegister);
+        btnEdit = findViewById(R.id.btnEdit);
 
         Intent intent = getIntent();
         String mode = intent.getStringExtra("mode");
@@ -52,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         String pwd = intent.getStringExtra("password");
         customerDB = new CustomerDB(this);
         db = new DBHelper(this);
+
 
         if (mode.equals("update")) {
             Customer customer = customerDB.getCustomer(user, pwd);
@@ -70,35 +76,29 @@ public class RegisterActivity extends AppCompatActivity {
             etUserName.setText(customer.getUserName());
             etPassword.setText(customer.getPassword());
             btnRegister.setText("SAVE");
+            btnRegister.setVisibility(View.INVISIBLE);
+            etFirstName.setEnabled(false);
+            etLastName.setEnabled(false);
+            etAddress.setEnabled(false);
+            etCity.setEnabled(false);
+            etProv.setEnabled(false);
+            etPostal.setEnabled(false);
+            etCountry.setEnabled(false);
+            etHomePhone.setEnabled(false);
+            etBusPhone.setEnabled(false);
+            etEmail.setEnabled(false);
+            etAgentId.setEnabled(false);
+            etUserName.setEnabled(false);
+            etPassword.setEnabled(false);
             etRePassword.setVisibility(View.INVISIBLE);
             tvRp.setVisibility(View.INVISIBLE);
-            TextWatcher textWatcher = new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    tvRp.setVisibility(View.VISIBLE);
-                    etRePassword.setVisibility(View.VISIBLE);
-                    etRePassword.isFocusable();
-                }
-
-                @Override
-                public void afterTextChanged(Editable editable) {
-
-                }
-            };
-
-            etPassword.addTextChangedListener(textWatcher);
-
         } else {
             tvId.setVisibility(View.INVISIBLE);
             etCustomerId.setVisibility(View.INVISIBLE);
             etRePassword.setVisibility(View.VISIBLE);
             etRePassword.isFocusable();
             btnRegister.setText("Sign Up");
+            btnEdit.setVisibility(View.INVISIBLE);
         }
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +125,14 @@ public class RegisterActivity extends AppCompatActivity {
                                     etEmail.getText().toString(), Integer.parseInt(etAgentId.getText().toString()),
                                     etUserName.getText().toString(), etPassword.getText().toString());
                                 customerDB.updateCustomer(customer);
-                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                if (passUpdate)
+                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                else {
+                                    Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                    intent.putExtra("user",user);
+                                    intent.putExtra("password",pwd);
+                                    startActivity(intent);
+                                }
                         }
                         /**
                          * Save the new agent being added
@@ -156,6 +163,51 @@ public class RegisterActivity extends AppCompatActivity {
                 });
 
                 alert.show();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnEdit.setVisibility(View.INVISIBLE);
+                btnRegister.setVisibility(View.VISIBLE);
+                etFirstName.setEnabled(true);
+                etLastName.setEnabled(true);
+                etAddress.setEnabled(true);
+                etCity.setEnabled(true);
+                etProv.setEnabled(true);
+                etPostal.setEnabled(true);
+                etCountry.setEnabled(true);
+                etHomePhone.setEnabled(true);
+                etBusPhone.setEnabled(true);
+                etEmail.setEnabled(true);
+                etAgentId.setEnabled(true);
+                etUserName.setEnabled(true);
+                etPassword.setEnabled(true);
+                etRePassword.setVisibility(View.INVISIBLE);
+                tvRp.setVisibility(View.INVISIBLE);
+                TextWatcher textWatcher = new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        tvRp.setVisibility(View.VISIBLE);
+                        etRePassword.setVisibility(View.VISIBLE);
+                        etRePassword.isFocusable();
+                        passUpdate = true;
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                };
+
+                etPassword.addTextChangedListener(textWatcher);
+
             }
         });
     }

@@ -8,55 +8,45 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="269dp"
-        android:layout_height="185dp"
-        android:layout_above="@+id/btnSignIn"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="26dp"
-        app:srcCompat="@drawable/bookings" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="223dp"
-        android:layout_height="83dp"
-        android:layout_above="@+id/btnSignUp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="95dp"
-        android:layout_marginEnd="122dp"
-        android:layout_marginBottom="57dp"
-        android:text="Existing user? Go to Sign In page!" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/travelagentlogo2" />
 
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="222dp"
-        android:layout_height="91dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="89dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="154dp"
-        android:text="New to TravelExperts? Register with us!" />
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Login" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="357dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="26dp"
-        android:text="Welcome To Travel Experts"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="34sp" />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/btnSignIn"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="Register" />
+        <!--    android:background="@drawable/button_border - not working-->
+
+    </LinearLayout>
 
 </RelativeLayout>
