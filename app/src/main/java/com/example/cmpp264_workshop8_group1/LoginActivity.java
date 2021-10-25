@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (user.equals("") || pwd.equals("")) {
                     Toast.makeText(LoginActivity.this, "Please enter required fields", Toast.LENGTH_SHORT).show();
-                    System.out.println("Enter values");
                 }
                 else if (customerdb.checkUserName(user) == false) {
                     Toast.makeText(LoginActivity.this, "User name does not exist", Toast.LENGTH_SHORT).show();
@@ -41,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if (customerdb.checkUserNamePassword(user, pwd))
                 {
                     Toast.makeText(LoginActivity.this, "Sign In successful", Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     intent.putExtra("user",user);
                     intent.putExtra("password",pwd);
@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+
             }
 
         });
