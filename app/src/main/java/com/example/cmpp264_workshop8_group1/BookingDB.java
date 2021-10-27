@@ -1,5 +1,6 @@
 package com.example.cmpp264_workshop8_group1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,9 +29,21 @@ public class BookingDB {
         while (cursor.moveToNext())
         {
             list.add(new Booking(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
-                    cursor.getInt(3), cursor.getInt(4), cursor.getString(5), cursor.getInt(6)));
+                    cursor.getString(3), cursor.getInt(4), cursor.getString(5), cursor.getInt(6)));
         }
         return list;
     }
 
+    public long insertBooking(Booking booking) {
+        ContentValues cv = new ContentValues();
+        //cv.put("BookingId", booking.getBookingId());
+        cv.put("BookingDate", booking.getBookingDate());
+        cv.put("BookingNo", booking.getBookingNo());
+        cv.put("TravelerCount", booking.getTravelerCount());
+        cv.put("CustomerId", booking.getCustomerId());
+        cv.put("TripTypeId", booking.getTripTypeId());
+        // cv.put("PackageId", booking.getPackageId());
+        return db.insert("Bookings", null, cv);
+
+    }
 }

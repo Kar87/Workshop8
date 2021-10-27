@@ -1,18 +1,17 @@
 package com.example.cmpp264_workshop8_group1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Booking implements Serializable {
     private int bookingId;
     private String bookingDate;
     private String bookingNo;
-    private int travelerCount;
+    private String travelerCount;
     private int customerId;
     private String tripTypeId;
     private int packageId;
 
-    public Booking(int bookingId, String bookingDate, String bookingNo, int travelerCount, int customerId, String tripTypeId, int packageId) {
+    public Booking(int bookingId, String bookingDate, String bookingNo, String travelerCount, int customerId, String tripTypeId, int packageId) {
         this.bookingId = bookingId;
         this.bookingDate = bookingDate;
         this.bookingNo = bookingNo;
@@ -46,11 +45,11 @@ public class Booking implements Serializable {
         this.bookingNo = bookingNo;
     }
 
-    public int getTravelerCount() {
+    public String getTravelerCount() {
         return travelerCount;
     }
 
-    public void setTravelerCount(int travelerCount) {
+    public void setTravelerCount(String travelerCount) {
         this.travelerCount = travelerCount;
     }
 

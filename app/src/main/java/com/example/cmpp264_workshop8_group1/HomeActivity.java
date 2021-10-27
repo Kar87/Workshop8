@@ -82,17 +82,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        ivBookings.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent1 = new Intent(HomeActivity.this, BookingActivity.class);
-//                //Intent intent1 = new Intent(HomeActivity.this, RegisterActivity.class);
-//
-//                /*intent1.putExtra("user", user);
-//                intent1.putExtra("password", pwd);*/
-//                startActivity(intent1);
-//            }
-//        });
-
+        ivPackages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PackageActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("password", pwd);
+                startActivity(intent);
+            }
+        });
     }
 }
