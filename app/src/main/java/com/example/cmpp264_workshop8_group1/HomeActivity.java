@@ -57,5 +57,14 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(browserIntent);
             }
         });
+        ivPackages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PackageActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("password", pwd);
+                startActivity(intent);
+            }
+        });
     }
 }
