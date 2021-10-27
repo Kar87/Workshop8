@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -14,6 +16,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView tvHello;
     ImageView ivProfile, ivBookings,ivPackages, ivContactUs, ivWebsite;
     CustomerDB customerDB;
+    //BookingDB bookingDB;
     @Override
     //application starts
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +34,25 @@ public class HomeActivity extends AppCompatActivity {
         //String mode = intent.getStringExtra("mode");
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
-        Customer customer = customerDB.getCustomer(user,pwd);
-        tvHello.setText("Hello "+ customer.getCustFirstName());
+        Customer customer = customerDB.getCustomer(user, pwd);
+        tvHello.setText("Hello " + customer.getCustFirstName());
+
+        /**
+         * Get customer id from customers table
+         */
+        /*customerDB = new CustomerDB(this);
+        intent = getIntent();
+        user = intent.getStringExtra("user");
+        pwd = intent.getStringExtra("password");
+        customer = customerDB.getCustomer(user,pwd);
+        int custId = customer.getCustomerId();*/
 
         ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, RegisterActivity.class);
-                intent.putExtra("user",user);
-                intent.putExtra("password",pwd);
+                intent.putExtra("user", user);
+                intent.putExtra("password", pwd);
                 intent.putExtra("mode", "update");
                 startActivity(intent);
 
@@ -57,5 +70,29 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(browserIntent);
             }
         });
+
+        ivBookings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, BookingActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("password", pwd);
+                intent.putExtra("mode", "update");
+                startActivity(intent);
+            }
+        });
+
+//        ivBookings.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent1 = new Intent(HomeActivity.this, BookingActivity.class);
+//                //Intent intent1 = new Intent(HomeActivity.this, RegisterActivity.class);
+//
+//                /*intent1.putExtra("user", user);
+//                intent1.putExtra("password", pwd);*/
+//                startActivity(intent1);
+//            }
+//        });
+
     }
 }

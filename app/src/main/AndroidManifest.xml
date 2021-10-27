@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CMPP264_Workshop8_Group1">
         <activity
+            android:name=".BookingDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookingActivity"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
