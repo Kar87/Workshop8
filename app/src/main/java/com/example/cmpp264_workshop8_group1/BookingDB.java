@@ -43,6 +43,6 @@ public class BookingDB implements Serializable {
         cv.put("CustomerId", booking.getCustomerId());
         cv.put("TripTypeId", booking.getTripTypeId());
         cv.put("PackageId", booking.getPackageId());
-        return db.insert("Bookings", null, cv);
+        //return db.insert("Bookings", null, cv);
     }
 }

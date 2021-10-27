@@ -90,8 +90,8 @@ public class SelectedPackageActivity extends AppCompatActivity {
                 alertBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int custId) {
-                    Booking booking = new Booking(0, tvSelectedName.getText().toString(), tvSelectedDesc.getText().toString(), tvSelectedPrice.getText().toString(), tvSelectedStartDate.getText().toString(), tvSelectedEndDate.getText().toString());
-                        bookingSource.insertBooking(booking);
+//                    Booking booking = new Booking(0, tvSelectedName.getText().toString(), tvSelectedDesc.getText().toString(), tvSelectedPrice.getText().toString(), tvSelectedStartDate.getText().toString(), tvSelectedEndDate.getText().toString());
+//                        bookingSource.insertBooking(booking);
                     }
                 });
                 alertBuilder.show();
