@@ -8,12 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.*;
-
 public class BookingDetailActivity extends AppCompatActivity {
     EditText etBookingId, etBookingDate, etBookingNo, etTravelerCount, etCustomerId2, etTripTypeId, etPackageId2;
     Button btnPrintBooking;
-    //Date date = Calender.getInstance().
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +27,7 @@ public class BookingDetailActivity extends AppCompatActivity {
         btnPrintBooking = findViewById(R.id.btnPrintBooking);
 
         Booking booking = (Booking) getIntent().getSerializableExtra("booking");
+
         etBookingId.setText(booking.getBookingId() + "");
         etBookingDate.setText(booking.getBookingDate());
         etBookingNo.setText(booking.getBookingNo());

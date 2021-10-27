@@ -1,6 +1,7 @@
 package com.example.cmpp264_workshop8_group1;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Booking implements Serializable {
     private int bookingId;
@@ -79,6 +80,6 @@ public class Booking implements Serializable {
 
     @Override
     public String toString() {
-        return "BookingId= " + bookingId + "\n" + "BookingDate=" + bookingDate;
+        return "Booking No =  " + bookingNo + ". Click to view details.";
     }
 }

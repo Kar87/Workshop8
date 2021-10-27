@@ -12,43 +12,11 @@ public class BookingDB {
     private SQLiteDatabase db;
     private DBHelper helper;
 
-
     public BookingDB(Context context) {
         this.context = context;
         helper = new DBHelper(context);
         db = helper.getReadableDatabase();
     }
-
-   /* public static int getCustomerId(String user, String pwd)
-    {
-        //String sql = "select * from Customers where Username=? and Password=?";
-        String sql = "select CustomerId from Customers where Username=? and Password=?";
-        String [] args = {user + "", pwd + ""};
-        Cursor cursor = db.rawQuery(sql, args);
-        cusId = cursor.getInt(0);
-        //cursor.moveToNext();
-        return cusId;
-
-        *//*return new Customer(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), cursor.getString(5),
-                cursor.getString(6), cursor.getString(7), cursor.getString(8),
-                cursor.getString(9), cursor.getString(10), cursor.getInt(11),
-                cursor.getString(12), cursor.getString(13));*//*
-    }*/
-
-    /*public Customer getCustomer(String user, String pwd)
-    {
-        String sql = "select * from Customers where Username=? and Password=?";
-        String [] args = {user + "", pwd + ""};
-        Cursor cursor = db.rawQuery(sql, args);
-        cursor.moveToNext();
-        return new Customer(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), cursor.getString(5),
-                cursor.getString(6), cursor.getString(7), cursor.getString(8),
-                cursor.getString(9), cursor.getString(10), cursor.getInt(11),
-                cursor.getString(12), cursor.getString(13));
-    }*/
-
 
     public ArrayList<Booking> getAllBookings(String id) {
         ArrayList<Booking> list = new ArrayList<>();
