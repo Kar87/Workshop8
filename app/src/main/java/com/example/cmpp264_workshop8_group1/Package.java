@@ -11,11 +11,7 @@ public class Package implements Serializable {
     private String PkgDesc;
     private String PkgBasePrice;
     private String PkgAgencyCommission;
-    private String imgURL;
 
-    public String getImgURL() {
-        return imgURL;
-    }
     public Package(Integer packageId, String pkgName, String pkgStartDate, String pkgEndDate, String pkgDesc, String pkgBasePrice, String pkgAgencyCommission) {
         this.PackageId = packageId;
         this.PkgName = pkgName;
@@ -82,9 +78,6 @@ public class Package implements Serializable {
         this.PkgAgencyCommission = pkgAgencyCommission;
     }
 
-    public void setImgURL(String imgURL) {
-        this.imgURL = imgURL;
-    }
 
 
     @Override

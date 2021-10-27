@@ -3,13 +3,13 @@ package com.example.cmpp264_workshop8_group1;
 public class Booking {
     private Integer BookingId;
     private String BookingDate;
-    private Integer BookingNo;
-    private Integer TravelerCount;
+    private String BookingNo;
+    private String TravelerCount;
     private Integer CustomerId;
     private String TripTypeId;
     private Integer PackageId;
 
-    public Booking(Integer bookingId, String bookingDate, Integer bookingNo, Integer travelerCount, Integer customerId, String tripTypeId, Integer packageId) {
+    public Booking(Integer bookingId, String bookingDate, String bookingNo, String travelerCount, Integer customerId, String tripTypeId, Integer packageId) {
         BookingId = bookingId;
         BookingDate = bookingDate;
         BookingNo = bookingNo;
@@ -35,19 +35,19 @@ public class Booking {
         BookingDate = bookingDate;
     }
 
-    public Integer getBookingNo() {
+    public String getBookingNo() {
         return BookingNo;
     }
 
-    public void setBookingNo(Integer bookingNo) {
+    public void setBookingNo(String bookingNo) {
         BookingNo = bookingNo;
     }
 
-    public Integer getTravelerCount() {
+    public String getTravelerCount() {
         return TravelerCount;
     }
 
-    public void setTravelerCount(Integer travelerCount) {
+    public void setTravelerCount(String travelerCount) {
         TravelerCount = travelerCount;
     }
 
