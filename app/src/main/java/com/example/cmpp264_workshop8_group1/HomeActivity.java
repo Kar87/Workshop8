@@ -67,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         ivWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.travelagencygroup2.website/"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://nicoderilo.tech/"));
                 startActivity(browserIntent);
             }
         });

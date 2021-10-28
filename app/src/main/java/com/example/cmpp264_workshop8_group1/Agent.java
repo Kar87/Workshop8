@@ -88,6 +88,6 @@ public class Agent {
     @Override
     public String toString() {
         return agentid + "." + agtfirstname + " " +agtmiddleinitial +"" + agtlastname + "|"
-                + agtbusphone + "|" + agtemail + '|' + agtposition + '|' + agencyid ;
+                + agtbusphone + " | " + agtemail + '|' + agtposition + '|' + agencyid ;
     }
 }
