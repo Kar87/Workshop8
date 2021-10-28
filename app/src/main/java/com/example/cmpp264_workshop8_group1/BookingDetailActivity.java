@@ -8,9 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class BookingDetailActivity extends AppCompatActivity {
     EditText etBookingId, etBookingDate, etBookingNo, etTravelerCount, etCustomerId2, etTripTypeId, etPackageId2;
     Button btnPrintBooking;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +33,22 @@ public class BookingDetailActivity extends AppCompatActivity {
         etPackageId2 = findViewById(R.id.etPackageId2);
         btnPrintBooking = findViewById(R.id.btnPrintBooking);
 
+
         Booking booking = (Booking) getIntent().getSerializableExtra("booking");
 
         etBookingId.setText(booking.getBookingId() + "");
         etBookingDate.setText(booking.getBookingDate());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddkkmmss");
+        String sdfInString = etBookingDate.getText().toString();
+        SimpleDateFormat sdfOut = new SimpleDateFormat("dd-MMM-yyyy");
+        try {
+            Date date = sdf.parse(sdfInString);
+            System.out.println(date);
+            etBookingDate.setText(sdfOut.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         etBookingNo.setText(booking.getBookingNo());
         etTravelerCount.setText(booking.getTravelerCount() + "");
         etCustomerId2.setText(booking.getCustomerId() + "");

@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class HomeActivity extends AppCompatActivity {
     //reference to controls
     TextView tvHello;
-    ImageView ivProfile, ivBookings,ivPackages, ivContactUs, ivWebsite;
+    ImageView ivProfile, ivBookings,ivPackages, ivContactUs, ivWebsite, ivDetail;
     CustomerDB customerDB;
     //BookingDB bookingDB;
     @Override
@@ -28,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         ivPackages = findViewById(R.id.ivPackages);
         ivContactUs = findViewById(R.id.ivContactUs);
         ivWebsite = findViewById(R.id.ivWebsite);
+        ivDetail = findViewById(R.id.ivQuestion);
         tvHello = findViewById(R.id.tvHello);
         customerDB = new CustomerDB(this);
         Intent intent = getIntent();
@@ -88,6 +89,22 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(HomeActivity.this, PackageActivity.class);
                 intent.putExtra("user", user);
                 intent.putExtra("password", pwd);
+                startActivity(intent);
+            }
+        });
+
+       ivDetail.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent = new Intent(HomeActivity.this, DetailActivity.class);
+               startActivity(intent);
+           }
+       });
+
+        ivContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, AgentActivity.class);
                 startActivity(intent);
             }
         });

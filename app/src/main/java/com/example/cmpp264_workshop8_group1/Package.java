@@ -83,6 +83,6 @@ public class Package implements Serializable {
 
     @Override
     public String toString() {
-        return PkgName +  "\n" + "" + "\n" + PkgDesc;
+        return PkgName + ": " + PkgDesc;
     }
 }
