@@ -64,6 +64,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "values ('European Vacation', '20051101000000', '20051114000000', " +
                 "'Euro Tour with Rail Pass and Travel Insurance', '3000', '280')";
         db.execSQL(sql);
+
+
     }
 
     @Override

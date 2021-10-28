@@ -29,7 +29,7 @@ public class SelectedPackageActivity extends AppCompatActivity {
     TextView tvSelectedStartDate;
     TextView tvSelectedEndDate;
     Button btnBookPkg;
-    PackageDB dataSource;
+    //PackageDB dataSource;
     BookingDB bookingSource;
     CustomerDB customerDB;
     Customer customer;
@@ -53,7 +53,7 @@ public class SelectedPackageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
-        dataSource = new PackageDB(this);
+        //dataSource = new PackageDB(this);
         bookingSource = new BookingDB(this);
         customerDB = new CustomerDB(this);
         customer = customerDB.getCustomer(user, pwd);
@@ -67,8 +67,8 @@ public class SelectedPackageActivity extends AppCompatActivity {
         tvSelectedName.setText(pkg.getPkgName());
         tvSelectedDesc.setText(pkg.getPkgDesc());
         tvSelectedPrice.setText((pkg.getPkgBasePrice() + "$"));
-        tvSelectedStartDate.setText(pkg.getPkgStartDate());
-        tvSelectedEndDate.setText(pkg.getPkgEndDate());
+        //tvSelectedStartDate.setText(pkg.getPkgStartDate());
+        //tvSelectedEndDate.setText(pkg.getPkgEndDate());
 
 
 
