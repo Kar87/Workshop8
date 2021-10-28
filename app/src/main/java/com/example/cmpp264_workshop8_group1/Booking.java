@@ -1,90 +1,84 @@
 package com.example.cmpp264_workshop8_group1;
 
-public class Booking {
-    private Integer BookingId;
-    private String BookingDate;
-    private Integer BookingNo;
-    private Integer TravelerCount;
-    private Integer CustomerId;
-    private String TripTypeId;
-    private Integer PackageId;
+import java.io.Serializable;
 
-    public Booking(Integer bookingId, String bookingDate, Integer bookingNo, Integer travelerCount, Integer customerId, String tripTypeId, Integer packageId) {
-        BookingId = bookingId;
-        BookingDate = bookingDate;
-        BookingNo = bookingNo;
-        TravelerCount = travelerCount;
-        CustomerId = customerId;
-        TripTypeId = tripTypeId;
-        PackageId = packageId;
+public class Booking implements Serializable {
+    private int bookingId;
+    private String bookingDate;
+    private String bookingNo;
+    private String travelerCount;
+    private int customerId;
+    private String tripTypeId;
+    private int packageId;
+
+    public Booking(int bookingId, String bookingDate, String bookingNo, String travelerCount, int customerId, String tripTypeId, int packageId) {
+        this.bookingId = bookingId;
+        this.bookingDate = bookingDate;
+        this.bookingNo = bookingNo;
+        this.travelerCount = travelerCount;
+        this.customerId = customerId;
+        this.tripTypeId = tripTypeId;
+        this.packageId = packageId;
     }
 
-    public Integer getBookingId() {
-        return BookingId;
+    public int getBookingId() {
+        return bookingId;
     }
 
-    public void setBookingId(Integer bookingId) {
-        BookingId = bookingId;
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
     }
 
     public String getBookingDate() {
-        return BookingDate;
+        return bookingDate;
     }
 
     public void setBookingDate(String bookingDate) {
-        BookingDate = bookingDate;
+        this.bookingDate = bookingDate;
     }
 
-    public Integer getBookingNo() {
-        return BookingNo;
+    public String getBookingNo() {
+        return bookingNo;
     }
 
-    public void setBookingNo(Integer bookingNo) {
-        BookingNo = bookingNo;
+    public void setBookingNo(String bookingNo) {
+        this.bookingNo = bookingNo;
     }
 
-    public Integer getTravelerCount() {
-        return TravelerCount;
+    public String getTravelerCount() {
+        return travelerCount;
     }
 
-    public void setTravelerCount(Integer travelerCount) {
-        TravelerCount = travelerCount;
+    public void setTravelerCount(String travelerCount) {
+        this.travelerCount = travelerCount;
     }
 
-    public Integer getCustomerId() {
-        return CustomerId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
-        CustomerId = customerId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getTripTypeId() {
-        return TripTypeId;
+        return tripTypeId;
     }
 
     public void setTripTypeId(String tripTypeId) {
-        TripTypeId = tripTypeId;
+        this.tripTypeId = tripTypeId;
     }
 
-    public Integer getPackageId() {
-        return PackageId;
+    public int getPackageId() {
+        return packageId;
     }
 
-    public void setPackageId(Integer packageId) {
-        PackageId = packageId;
+    public void setPackageId(int packageId) {
+        this.packageId = packageId;
     }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "BookingId=" + BookingId +
-                ", BookingDate='" + BookingDate + '\'' +
-                ", BookingNo=" + BookingNo +
-                ", TravelerCount=" + TravelerCount +
-                ", CustomerId=" + CustomerId +
-                ", TripTypeId='" + TripTypeId + '\'' +
-                ", PackageId=" + PackageId +
-                '}';
+        return "Booking No =  " + bookingNo + ". Click to view details.";
     }
 }

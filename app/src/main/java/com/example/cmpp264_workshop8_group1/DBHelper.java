@@ -65,13 +65,30 @@ public class DBHelper extends SQLiteOpenHelper {
                 "'Euro Tour with Rail Pass and Travel Insurance', '3000', '280')";
         db.execSQL(sql);
 
+        sql = "CREATE TABLE \"Bookings\" (\n" +
+                "\t`BookingId`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+                "\t`BookingDate`\tDATETIME,\n" +
+                "\t`BookingNo`\tVARCHAR(50),\n" +
+                "\t`TravelerCount`\tDOUBLE,\n" +
+                "\t`CustomerId`\tINT,\n" +
+                "\t`TripTypeId`\tVARCHAR(1),\n" +
+                "\t`PackageId`\tINT\n" +
+                ")";
 
+        db.execSQL(sql);
+        sql = "insert into Bookings (BookingDate, BookingNo, TravelerCount, CustomerId, TripTypeId, PackageId) values('20160131000000', 'DFS3', 1, 1, 'B', 1)";
+        db.execSQL(sql);
+        sql = "insert into Bookings (BookingDate, BookingNo, TravelerCount, CustomerId, TripTypeId, PackageId) values('20160305000000', 'WDR898', 1, 1, 'L', 2)";
+        db.execSQL(sql);
+        sql = "insert into Bookings (BookingDate, BookingNo, TravelerCount, CustomerId, TripTypeId, PackageId) values('20160306000000', 'FES3', 1, 1, 'B', 4)";
+        db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table Customers");
         db.execSQL("drop table Packages");
+        db.execSQL("drop table Bookings");
         onCreate(db);
 
     }
