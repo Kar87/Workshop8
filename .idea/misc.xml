@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Program Files/AndroidStudioProjects/Workshop8/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Program Files/AndroidStudioProjects/Workshop8/app/src/main/res/layout/content_scrolling.xml" value="0.328804347826087" />
+        <entry key="..\:/Program Files/Github/Github2/Workshop8/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/Program Files/Github/Github2/Workshop8/app/src/main/res/layout/activity_home.xml" value="0.20208333333333334" />
         <entry key="..\:/Program Files/Github/Github2/Workshop8/app/src/main/res/layout/activity_login.xml" value="0.20520833333333333" />
         <entry key="..\:/Program Files/Github/Github2/Workshop8/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Program Files/Github/Workshop8/app/src/main/res/layout/activity_agent.xml" value="0.1923828125" />
@@ -17,7 +19,6 @@
         <entry key="..\:/Program Files/Github/Workshop8/app/src/main/res/layout/activity_package.xml" value="0.1923828125" />
         <entry key="..\:/Program Files/Github/Workshop8/app/src/main/res/layout/activity_register.xml" value="0.1923828125" />
         <entry key="..\:/Program Files/Github/Workshop8/app/src/main/res/layout/activity_selected_package.xml" value="0.1923828125" />
-        <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_agent.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_booked_package.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_detail.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_home.xml" value="0.2" />
@@ -26,8 +27,6 @@
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_package.xml" value="0.33" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_register.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/activity_selected_package.xml" value="0.25" />
-        <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/layout_agent_listview.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/layout_bookings_listview.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/layout_package_listview.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/aidan/AndroidStudioProjects/Workshop8Clone/app/src/main/res/layout/package_listview_layout.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/shali/AndroidStudioProjects/CMPP264_Workshop8_Group1/app/src/main/res/layout/activity_detail.xml" value="0.25416666666666665" />
