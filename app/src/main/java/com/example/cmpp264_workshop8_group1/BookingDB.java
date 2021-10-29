@@ -1,5 +1,7 @@
 package com.example.cmpp264_workshop8_group1;
-
+/**
+ * Author: Stan Abana
+ */
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,12 +15,20 @@ public class BookingDB {
     private SQLiteDatabase db;
     private DBHelper helper;
 
+    /**
+     * Method BookingDB which accepts context as parameter
+     * @param context
+     */
     public BookingDB(Context context) {
         this.context = context;
         helper = new DBHelper(context);
         db = helper.getReadableDatabase();
     }
 
+    /**
+     * Method that returns all the bookings of the current customer
+     * @return
+     */
     public ArrayList<Booking> getAllBookings(String id) {
         ArrayList<Booking> list = new ArrayList<>();
         String [] columns = {"BookingId", "BookingDate","BookingNo", "TravelerCount", "CustomerId",
@@ -34,6 +44,12 @@ public class BookingDB {
         return list;
     }
 
+    /**
+     * Method which accepts parameter of type Booking
+     * Returns update statement to insert the table with values that were added
+     * @param booking
+     * @return
+     */
     public long insertBooking(Booking booking) {
         ContentValues cv = new ContentValues();
         //cv.put("BookingId", booking.getBookingId());

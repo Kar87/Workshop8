@@ -1,5 +1,7 @@
 package com.example.cmpp264_workshop8_group1;
-
+/**
+ * Stan Abana
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -48,7 +50,6 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        //ArrayAdapter<Booking> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bookingDB.getAllBookings(customerId));
         BookingListAdapter adapter = new BookingListAdapter(BookingActivity.this, R.layout.layout_bookings_listview, bookingDB.getAllBookings(customerId));
         lvBookings.setAdapter(adapter);
     }

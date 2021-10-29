@@ -1,5 +1,9 @@
 package com.example.cmpp264_workshop8_group1;
 
+/**
+ * Author: Stan Abana
+ * Booking class with the constructors, getters and setters and override toString method
+ */
 import java.io.Serializable;
 
 public class Booking implements Serializable {

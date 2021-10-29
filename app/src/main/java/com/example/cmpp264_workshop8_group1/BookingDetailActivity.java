@@ -1,5 +1,7 @@
 package com.example.cmpp264_workshop8_group1;
-
+/**
+ * Author: Stan Abana
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -16,8 +18,6 @@ import java.util.Date;
 public class BookingDetailActivity extends AppCompatActivity {
     EditText etBookingId, etBookingDate, etBookingNo, etTravelerCount, etCustomerId2, etTripTypeId, etPackageId2;
     Button btnPrintBooking;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
