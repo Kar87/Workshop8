@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -12,6 +13,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -26,11 +29,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class PackageActivity extends AppCompatActivity {
     ListView lvPackage;
     PackageDB dataSource;
+    private static final String TAG = "PackageActivity";
+
     String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/package/getpackages";
 
 
@@ -38,14 +46,21 @@ public class PackageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package);
-        lvPackage = findViewById(R.id.lvPackage);
-        dataSource = new PackageDB(this);
 
+        Log.d(TAG, "onCreate: Started.");
+        ListView lvPackage = findViewById(R.id.lvPackage);
+        dataSource = new PackageDB(this);
+        ArrayList<Package> packageList = new ArrayList<>();
+
+        //Intent and password/user passing for data structuring.
         Intent intent = getIntent();
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
 
 
+        PackageListAdapter adapter = new PackageListAdapter(this, R.layout.layout_package_listview, dataSource.getAllPackages());
+        lvPackage.setAdapter(adapter);
+       // loadData();
 
 
         loadData(URL);

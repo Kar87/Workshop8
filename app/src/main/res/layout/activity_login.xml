@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/appbackground"
+    android:background="@drawable/loginBackground"
     tools:context=".LoginActivity">
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp">
+        android:layout_width="757dp"
+        android:layout_height="889dp"
+        android:layout_marginTop="110dp"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
             android:paddingBottom="20dp"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textColorHint="#0188a3"
+            android:textColorHint="#83b1c1"
             android:textSize="20dp" />
 
         <EditText
@@ -61,7 +61,7 @@
             android:paddingBottom="20dp"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textColorHint="#0188a3"
+            android:textColorHint="#83b1c1"
             android:textSize="20dp" />
 
         <Button
@@ -73,10 +73,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:textSize="20dp"
             android:layout_marginTop="20dp"
+            android:text="Let's go"
 
-            android:text="Let's go" />
+            android:textSize="20dp" />
     </LinearLayout>
 
 

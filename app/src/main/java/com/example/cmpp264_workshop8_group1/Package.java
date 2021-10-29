@@ -1,6 +1,7 @@
 package com.example.cmpp264_workshop8_group1;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.text.DateFormat;
 
 public class Package implements Serializable {
