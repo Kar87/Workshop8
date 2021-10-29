@@ -1,9 +1,15 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for Customer details andd passing to Home activity if Login succeeds
+ * If User does not exist provide option to Register
+ * Display error for invalid credentials
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn1 = findViewById(R.id.btnSignIn1);
         customerdb = new CustomerDB(this);
 
+        //allow login after validation of fields
         btnSignIn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

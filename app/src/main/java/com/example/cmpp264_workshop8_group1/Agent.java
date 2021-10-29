@@ -1,5 +1,11 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for AGENT class that matches the REST Web Service
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
+//agent class matching the REST service
 public class Agent {
     private Integer agentid;
     private String agtfirstname;
@@ -10,6 +16,7 @@ public class Agent {
     private String agtposition;
     private Integer agencyid;
 
+    //constructor
     public Agent(Integer agentid, String agtfirstname, String agtmiddleinitial, String agtlastname, String agtbusphone, String agtemail, String agtposition, Integer agencyid) {
         this.agentid = agentid;
         this.agtfirstname = agtfirstname;
@@ -21,6 +28,7 @@ public class Agent {
         this.agencyid = agencyid;
     }
 
+    //getters and setters
     public Integer getAgentid() {
         return agentid;
     }
@@ -85,6 +93,7 @@ public class Agent {
         this.agencyid = agencyid;
     }
 
+    //toString method
     @Override
     public String toString() {
         return agentid + "." + agtfirstname + " " +agtmiddleinitial +"" + agtlastname + "|"

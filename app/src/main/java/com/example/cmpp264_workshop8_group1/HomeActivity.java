@@ -1,3 +1,8 @@
+/**
+ * Author: Nicolino Derilo and Sai Shalini Karaikatte Venugopal
+ * Code for redirecting to required screens based on click of button
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,9 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -32,22 +35,13 @@ public class HomeActivity extends AppCompatActivity {
         tvHello = findViewById(R.id.tvHello);
         customerDB = new CustomerDB(this);
         Intent intent = getIntent();
-        //String mode = intent.getStringExtra("mode");
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
         Customer customer = customerDB.getCustomer(user, pwd);
+        //greet user by name
         tvHello.setText("Hello " + customer.getCustFirstName());
 
-        /**
-         * Get customer id from customers table
-         */
-        /*customerDB = new CustomerDB(this);
-        intent = getIntent();
-        user = intent.getStringExtra("user");
-        pwd = intent.getStringExtra("password");
-        customer = customerDB.getCustomer(user,pwd);
-        int custId = customer.getCustomerId();*/
-
+        //re-direct to profile view with details of logged in user
         ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,14 +50,10 @@ public class HomeActivity extends AppCompatActivity {
                 intent.putExtra("password", pwd);
                 intent.putExtra("mode", "update");
                 startActivity(intent);
-
-                /*Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                intent.putExtra("mode", "insert");
-                //LoginActivity.etUsername1.getText();
-                startActivity(intent);*/
             }
         });
 
+        //re-direct to travel experts website
         ivWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //re-direct to  bookings activity
         ivBookings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +74,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //re-direct to package activity
         ivPackages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +85,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //re-direct to announcements
        ivDetail.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -101,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
            }
        });
 
+       //re-direct to agent activity
         ivContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

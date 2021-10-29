@@ -1,28 +1,26 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for getting the Agent details from the REST service and 
+ * display in a formatted manner
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class AgentActivity extends AppCompatActivity {
 
@@ -36,12 +34,8 @@ public class AgentActivity extends AppCompatActivity {
         lvAgents = findViewById(R.id.lvAgents);
         ArrayList<Agent> agentList = new ArrayList<>();
 
+        //url for REST service
         String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/agent/getagents";
-
-//        AgentListAdapter adapter = new AgentListAdapter(this, R.layout.layout_agent_listview, dataSource.getAllPackages());
-//        lvAgents.setAdapter(adapter);
-
-
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         JsonArrayRequest arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -69,22 +63,13 @@ public class AgentActivity extends AppCompatActivity {
                                 Integer agencyid = line.getInt("agencyid");
                                 Agent agt = new Agent(agentid, agtfirstname, agtmiddleinitial, agtlastname,
                                         agtbusphone, agtemail, agtposition, agencyid);
+                                //add Agent from JSON to agentArrayList
                                 agentArrayList.add(agt);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
-                            // Get the current line (json object) data
-                            // To avoid crash use optString
-                            String lineName = line.toString();
-
-                            // add all items
-                            tubeLines.add(lineName);
-
-
                         }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(AgentActivity.this, android.R.layout.simple_list_item_1, tubeLines);
-                        //ArrayAdapter<Agent> arrayAdapter1 = new ArrayAdapter<>(AgentActivity.this, android.R.layout.simple_list_item_1,agentArrayList);
+                        //using class AgentListAdapter to format the Agentdisplay
                         AgentListAdapter adapter = new AgentListAdapter(AgentActivity.this, R.layout.layout_agent_listview, agentArrayList);
                         lvAgents.setAdapter(adapter);
                     }
