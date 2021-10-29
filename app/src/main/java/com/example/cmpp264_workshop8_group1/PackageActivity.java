@@ -1,56 +1,35 @@
 package com.example.cmpp264_workshop8_group1;
 
-
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
-
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
 
 /*
 Author: Aidan Goguen
-PackageActivity created by Aidan Goguen, loadData method created by Shalini and Nicolino
+PackageActivity created by Aidan Goguen, loadData method created by Shalini 
  */
 
 public class PackageActivity extends AppCompatActivity {
     ListView lvPackage;
     PackageDB dataSource;
+    //url for REST service
     String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/package/getpackages";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -59,15 +38,9 @@ public class PackageActivity extends AppCompatActivity {
         lvPackage = findViewById(R.id.lvPackage);
         dataSource = new PackageDB(this);
 
-
-
         Intent intent = getIntent();
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
-
-
-
-
 
 
         loadData(URL);
@@ -84,8 +57,10 @@ public class PackageActivity extends AppCompatActivity {
     }
 
 
-    /*
-    Authors: Shalini and Nicolino
+    /**
+     * Author: Sai Shalini Karaikatte Venugopal
+     * Code for getting the Package details from the REST service and 
+     * display in a formatted manner
      */
     private void loadData(String URL){
         RequestQueue requestQueue= Volley.newRequestQueue(this);
@@ -116,16 +91,10 @@ public class PackageActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-                        // Get the current line (json object) data
-                        // To avoid crash use optString
-//                            String lineName = line.toString();
-                        // add all items
-//                            tubeLines.add(lineName);
                         }
-                       // ArrayAdapter<Package> arrayAdapter1 = new ArrayAdapter<>(PackageActivity.this, android.R.layout.simple_list_item_1,packageArrayList);
+                      
                         PackageListAdapter adapter = new PackageListAdapter(PackageActivity.this, R.layout.layout_package_listview, packageArrayList);
-                        lvPackage.setAdapter(adapter);
-                        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PackageActivity.this, android.R.layout.simple_list_item_1, tubeLines);
+                        lvPackage.setAdapter(adapter);                      
                     }
                 },
                 new Response.ErrorListener() {
@@ -139,16 +108,11 @@ public class PackageActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     protected void onStart() {
         super.onStart();
         loadData(URL);
     }
-
-
 
     @Override
     protected void onResume() {

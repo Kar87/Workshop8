@@ -1,3 +1,7 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for getting the Customer details
+ */
 package com.example.cmpp264_workshop8_group1;
 
 import android.content.ContentValues;

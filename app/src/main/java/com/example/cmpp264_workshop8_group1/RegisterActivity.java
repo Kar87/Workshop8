@@ -1,8 +1,12 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for inserting or updating Customer details
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +15,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.Arrays;
-
+//Register activity with form input
 public class RegisterActivity extends AppCompatActivity {
     TextView tvId, tvRp;
     EditText etCustomerId, etFirstName, etLastName, etAddress, etCity, etProv,etPostal, etCountry,  etHomePhone,
@@ -61,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         db = new DBHelper(this);
 
 
+        //if user logged in populate user details
         if (mode.equals("update")) {
             Customer customer = customerDB.getCustomer(user, pwd);
             etCustomerId.setText(customer.getCustomerId() + "");
@@ -94,7 +96,9 @@ public class RegisterActivity extends AppCompatActivity {
             etPassword.setEnabled(false);
             etRePassword.setVisibility(View.INVISIBLE);
             tvRp.setVisibility(View.INVISIBLE);
-        } else {
+        }
+        //if user is registering disable customer ID and allow insert
+        else {
             tvId.setVisibility(View.INVISIBLE);
             etCustomerId.setVisibility(View.INVISIBLE);
             etRePassword.setVisibility(View.VISIBLE);
@@ -103,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
             btnEdit.setVisibility(View.INVISIBLE);
         }
 
+        //on click of Save validate and insert or updates based on the mode
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             /**
-                             * Save the changes to existing agent
+                             * Save the changes to existing customer
                              */
                             if (mode.equals("update")) {
                                 Customer customer = new Customer(Integer.parseInt(etCustomerId.getText().toString()), etFirstName.getText().toString(),
@@ -140,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 }
                             }
                             /**
-                             * Save the new agent being added
+                             * Save the customer agent being added
                              */
                             else {
                                 Customer customer = new Customer(0, etFirstName.getText().toString(),
@@ -172,6 +177,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        //allow data edit when EDIT button is clicked
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -192,6 +198,8 @@ public class RegisterActivity extends AppCompatActivity {
                 etPassword.setEnabled(true);
                 etRePassword.setVisibility(View.INVISIBLE);
                 tvRp.setVisibility(View.INVISIBLE);
+
+                //when password is changed re-direct to login screen
                 TextWatcher textWatcher = new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -214,6 +222,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 etPassword.addTextChangedListener(textWatcher);
 
+                //when user-name is changed re-direct to login screen
                 TextWatcher textWatcher1 = new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -237,15 +246,19 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
+
+    //validate fields
     private boolean validate() {
         StringBuilder errors = new StringBuilder();
+
+        //validate for mandatory field and length
         if (etFirstName.getText().toString().matches("")) {
             errors.append("- Please enter a Firstname.\n");
         }
         else if(etFirstName.getText().toString().trim().length() > 25) {
             errors.append("- Firstname cannot exceed 25 characters.\n");
         }
-
+        //validate for mandatory field and length
         if (etLastName.getText().toString().matches("")) {
             errors.append("- Please enter a Lastname.\n");
         }
@@ -253,6 +266,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Lastname cannot exceed 25 characters.\n");
         }
 
+        //validate for mandatory field and length
         if (etAddress.getText().toString().matches("")) {
             errors.append("- Please enter a Address.\n");
         }
@@ -260,6 +274,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Address cannot exceed 75 characters.\n");
         }
 
+        //validate for mandatory field and length
         if (etCity.getText().toString().matches("")) {
             errors.append("- Please enter a City.\n");
         }
@@ -267,6 +282,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Lastname cannot exceed 50 characters.\n");
         }
 
+        //validate for mandatory field and regex
         if (etProv.getText().toString().matches(""))  {
             errors.append("- Please enter a Province.\n");
         }
@@ -274,6 +290,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Please enter a valid Province ex: AB for Alberta\n");
         }
 
+        //validate for mandatory field and regex
         if (etPostal.getText().toString().matches(""))  {
             errors.append("- Please enter a PostalCode.\n");
         }
@@ -281,12 +298,14 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Please enter a valid Postal code of the format x9x9x9\n");
         }
 
+        //validate field for regex
         if (etHomePhone.getText().toString().trim().length() > 0) {
             if (!(etHomePhone.getText().toString().matches("^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$"))) {
                 errors.append("- Please enter a valid Home phone number\n");
             }
         }
 
+        //validatefor mandatory field and regex
         if (etBusPhone.getText().toString().matches(""))  {
             errors.append("- Please enter a Business Phone Number.\n");
         }
@@ -294,6 +313,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Please enter a valid Business phone number\n");
         }
 
+        //validate for mandatory field and regex
         if (etEmail.getText().toString().matches(""))  {
             errors.append("- Please enter an Email address.\n");
         }
@@ -301,6 +321,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Please enter a valid email address\n");
         }
 
+        //validate mandatory field and integer
         if (etAgentId.getText().toString().trim().length() == 0) {
             errors.append("- Please enter a valid AgentId\n");
         }
@@ -310,12 +331,13 @@ public class RegisterActivity extends AppCompatActivity {
             } catch (NumberFormatException e) {
                 errors.append("- Agent Id has to be numeric.\n");
             }
-            if ((Integer.parseInt(etAgentId.getText().toString())) > 3)
+            if ((Integer.parseInt(etAgentId.getText().toString())) > 9)
             {
                 errors.append("- Agent does not exist.\n");
             }
         }
 
+        //validate for mandatory field and length
         if (etUserName.getText().toString().matches(""))  {
             errors.append("- Please enter a User Name.\n");
         }
@@ -323,6 +345,7 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Password cannot exceed 25 characters.\n");
         }
 
+        //validate for mandatory field and length
         if (etPassword.getText().toString().matches(""))  {
             errors.append("- Please enter a Password.\n");
         }
@@ -330,18 +353,20 @@ public class RegisterActivity extends AppCompatActivity {
             errors.append("- Password cannot exceed 25 characters.\n");
         }
 
+        //validate for matching password if re-typed
         if(passUpdate)
         {
             if (etRePassword.getText().toString().matches(""))  {
                 errors.append("- Please retype password.\n");
             }
-            else if(etRePassword.getText().toString().matches(etPassword.getText().toString())) {
+            else if(!etRePassword.getText().toString().matches(etPassword.getText().toString())) {
                 errors.append("- Retyped password mismatch.\n");
             }
 
         }
+
+        //Display Error
         if (errors.length() > 0) {
-            //Toast.makeText(RegisterActivity.this, errors, Toast.LENGTH_SHORT).show();
             AlertDialog.Builder builder1 = new AlertDialog.Builder(RegisterActivity.this);
             builder1.setMessage(errors);
             builder1.setCancelable(true);

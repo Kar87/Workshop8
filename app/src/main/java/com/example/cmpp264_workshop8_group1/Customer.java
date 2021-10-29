@@ -1,3 +1,8 @@
+/**
+ * Author: Sai Shalini Karaikatte Venugopal
+ * Code for Customer class 
+ */
+
 package com.example.cmpp264_workshop8_group1;
 
 import java.io.Serializable;
@@ -18,6 +23,7 @@ public class Customer implements Serializable{
     private String userName;
     private String password;
 
+    //constructor
     public Customer(Integer customerId, String custFirstName, String custLastName,
                     String custAddress, String custCity, String custProv, String custPostal,
                     String custCountry, String custHomePhone, String custBusPhone, String custEmail,
@@ -38,6 +44,7 @@ public class Customer implements Serializable{
         this.password = password;
     }
 
+    //getters and setters
     public Integer getCustomerId() {
         return customerId;
     }
