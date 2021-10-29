@@ -11,6 +11,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Author: Aidan Goguen
+Adapter class that adds display for listview in Bookings
+ */
+
 public class BookingListAdapter extends ArrayAdapter<Booking> {
     private Context bContext;
     private int bResource;

@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Author: Aidan Goguen
+Adapter class that adds display for listview in Packages
+ */
 
 public class PackageListAdapter extends ArrayAdapter<Package> {
     private static final String TAG = "PackageListAdapter";

@@ -33,29 +33,30 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         etPackages = findViewById(R.id.etPackages);
+        etPackages.setText("Announcements \n\n\n\n\n Insert announcements here \n\n Insert announcements here \n\n Insert announcements here");
 
-        String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/package/getpackages";
+        //String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/package/getpackages";
 
 
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(
-                Request.Method.GET,
-                URL,
-                null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.e("Rest Response", response.toString());
-                        etPackages.setText(response.toString());
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Rest Response", error.toString());
-                    }
-                }
-        );
-        requestQueue.add(arrayRequest);
+//        RequestQueue requestQueue= Volley.newRequestQueue(this);
+//        JsonArrayRequest arrayRequest = new JsonArrayRequest(
+//                Request.Method.GET,
+//                URL,
+//                null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        Log.e("Rest Response", response.toString());
+//                        etPackages.setText(response.toString());
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Log.e("Rest Response", error.toString());
+//                    }
+//                }
+//        );
+//        requestQueue.add(arrayRequest);
     }
 }

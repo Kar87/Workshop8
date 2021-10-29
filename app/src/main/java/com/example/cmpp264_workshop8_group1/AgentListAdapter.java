@@ -11,6 +11,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Author: Aidan Goguen
+Adapter class that adds display for listview in Agents
+ */
+
 public class AgentListAdapter extends ArrayAdapter<Agent> {
     List<Agent> agentList = new ArrayList<>();
     private Context aContext;

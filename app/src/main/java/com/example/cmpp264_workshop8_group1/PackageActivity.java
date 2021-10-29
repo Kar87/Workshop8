@@ -39,6 +39,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
+/*
+Author: Aidan Goguen
+PackageActivity created by Aidan Goguen, loadData method created by Shalini and Nicolino
+ */
 
 public class PackageActivity extends AppCompatActivity {
     ListView lvPackage;
@@ -78,6 +82,11 @@ public class PackageActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    /*
+    Authors: Shalini and Nicolino
+     */
     private void loadData(String URL){
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         JsonArrayRequest arrayRequest = new JsonArrayRequest(
