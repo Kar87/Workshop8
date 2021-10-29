@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ivPackage"
+            android:id="@+id/PkgsViewImg"
             android:layout_width="match_parent"
             android:layout_height="96dp"
             app:srcCompat="@drawable/travelagentlogo2" />
@@ -31,7 +31,8 @@
             android:text="Package Desc"
             android:textAlignment="center"
             android:textAppearance="@style/Theme.AppCompat"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
