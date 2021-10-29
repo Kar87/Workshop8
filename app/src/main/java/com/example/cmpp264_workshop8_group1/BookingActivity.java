@@ -48,7 +48,8 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        ArrayAdapter<Booking> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bookingDB.getAllBookings(customerId));
+        //ArrayAdapter<Booking> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bookingDB.getAllBookings(customerId));
+        BookingListAdapter adapter = new BookingListAdapter(BookingActivity.this, R.layout.layout_bookings_listview, bookingDB.getAllBookings(customerId));
         lvBookings.setAdapter(adapter);
     }
 

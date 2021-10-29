@@ -1,11 +1,12 @@
 package com.example.cmpp264_workshop8_group1;
 
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -13,9 +14,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+
 import androidx.appcompat.app.AppCompatActivity;
+
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,43 +27,43 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
+
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+
 
 public class PackageActivity extends AppCompatActivity {
     ListView lvPackage;
     PackageDB dataSource;
-    private static final String TAG = "PackageActivity";
-
     String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/package/getpackages";
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_package);
-
-        Log.d(TAG, "onCreate: Started.");
-        ListView lvPackage = findViewById(R.id.lvPackage);
+        lvPackage = findViewById(R.id.lvPackage);
         dataSource = new PackageDB(this);
-        ArrayList<Package> packageList = new ArrayList<>();
 
-        //Intent and password/user passing for data structuring.
+
+
         Intent intent = getIntent();
         String user = intent.getStringExtra("user");
         String pwd = intent.getStringExtra("password");
 
 
-        PackageListAdapter adapter = new PackageListAdapter(this, R.layout.layout_package_listview, dataSource.getAllPackages());
-        lvPackage.setAdapter(adapter);
-       // loadData();
+
+
 
 
         loadData(URL);
@@ -74,7 +77,6 @@ public class PackageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     private void loadData(String URL){
         RequestQueue requestQueue= Volley.newRequestQueue(this);
@@ -87,10 +89,8 @@ public class PackageActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         ArrayList<String> tubeLines = new ArrayList<>();
                         ArrayList<Package> packageArrayList = new ArrayList<>();
-
                         for (int i = 0; i < response.length(); i++) {
-
-                            // Get current json object
+                        // Get current json object
                             JSONObject line = null;
                             try {
                                 line = response.getJSONObject(i);
@@ -107,18 +107,17 @@ public class PackageActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-                            // Get the current line (json object) data
-                            // To avoid crash use optString
-                            String lineName = line.toString();
-                            // add all items
-                            tubeLines.add(lineName);
-
+                        // Get the current line (json object) data
+                        // To avoid crash use optString
+//                            String lineName = line.toString();
+                        // add all items
+//                            tubeLines.add(lineName);
                         }
+                       // ArrayAdapter<Package> arrayAdapter1 = new ArrayAdapter<>(PackageActivity.this, android.R.layout.simple_list_item_1,packageArrayList);
+                        PackageListAdapter adapter = new PackageListAdapter(PackageActivity.this, R.layout.layout_package_listview, packageArrayList);
+                        lvPackage.setAdapter(adapter);
                         //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(PackageActivity.this, android.R.layout.simple_list_item_1, tubeLines);
-                        ArrayAdapter<Package> arrayAdapter1 = new ArrayAdapter<>(PackageActivity.this, android.R.layout.simple_list_item_1,packageArrayList);
-                        lvPackage.setAdapter(arrayAdapter1);
                     }
-
                 },
                 new Response.ErrorListener() {
                     @Override
@@ -127,9 +126,10 @@ public class PackageActivity extends AppCompatActivity {
                     }
                 }
         );
-
         requestQueue.add(arrayRequest);
     }
+
+
 
 
 
@@ -138,6 +138,8 @@ public class PackageActivity extends AppCompatActivity {
         super.onStart();
         loadData(URL);
     }
+
+
 
     @Override
     protected void onResume() {

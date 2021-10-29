@@ -67,12 +67,12 @@ public class PackageListAdapter extends ArrayAdapter<Package> {
         Log.d(TAG, "In inflator method");
 
         //Instantiating text view items for data
-        ImageView ivPackages = (ImageView) convertView.findViewById(R.id.ivPackage);
+        ImageView PkgsViewImg = (ImageView) convertView.findViewById(R.id.PkgsViewImg);
         TextView textPkgName = (TextView) convertView.findViewById(R.id.textPkgName);
         TextView textPkgDesc = (TextView) convertView.findViewById(R.id.textPkgDesc);
         Log.d(TAG, "In message instantiation");
 
-        ivPackages.setImageResource(R.drawable.travelagentlogo2);
+        PkgsViewImg.setImageResource(R.drawable.travelagentlogo2);
         textPkgName.setText(PkgName);
         textPkgDesc.setText(PkgDesc);
         Log.d(TAG, "In text appendage");

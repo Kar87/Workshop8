@@ -32,9 +32,14 @@ public class AgentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agent);
 
+
         lvAgents = findViewById(R.id.lvAgents);
+        ArrayList<Agent> agentList = new ArrayList<>();
 
         String URL ="http://10.0.2.2:8080/JSPDay7-1.0-SNAPSHOT/api/agent/getagents";
+
+//        AgentListAdapter adapter = new AgentListAdapter(this, R.layout.layout_agent_listview, dataSource.getAllPackages());
+//        lvAgents.setAdapter(adapter);
 
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
@@ -79,8 +84,9 @@ public class AgentActivity extends AppCompatActivity {
 
                         }
                         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(AgentActivity.this, android.R.layout.simple_list_item_1, tubeLines);
-                        ArrayAdapter<Agent> arrayAdapter1 = new ArrayAdapter<>(AgentActivity.this, android.R.layout.simple_list_item_1,agentArrayList);
-                        lvAgents.setAdapter(arrayAdapter1);
+                        //ArrayAdapter<Agent> arrayAdapter1 = new ArrayAdapter<>(AgentActivity.this, android.R.layout.simple_list_item_1,agentArrayList);
+                        AgentListAdapter adapter = new AgentListAdapter(AgentActivity.this, R.layout.layout_agent_listview, agentArrayList);
+                        lvAgents.setAdapter(adapter);
                     }
 
                 },
