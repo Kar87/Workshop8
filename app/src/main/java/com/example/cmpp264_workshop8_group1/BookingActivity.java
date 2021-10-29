@@ -48,20 +48,20 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-            ArrayAdapter<Booking> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bookingDB.getAllBookings(customerId));
-            lvBookings.setAdapter(adapter);
+        ArrayAdapter<Booking> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, bookingDB.getAllBookings(customerId));
+        lvBookings.setAdapter(adapter);
     }
 
     @Override
     protected void onStart() {
-            super.onStart();
-            loadData();
+        super.onStart();
+        loadData();
     }
 
     @Override
-        protected void onResume() {
-            super.onResume();
-            loadData();
+    protected void onResume() {
+        super.onResume();
+        loadData();
     }
 
 
